@@ -2,6 +2,10 @@
 \title{dittoSeq News}
 \encoding{UTF-8}
 
+\section{Version 1.0.2}{\itemize{
+\item Bug fix: Allow expression grabbing across visualizations (ultimately via `gene()`) from non-default assays of Seurat objects.
+}}
+
 \section{Version 1.0.1}{\itemize{
 \item Fixed Bug where hover.data was not shown for `dittoScatterPlot()` and `dittoDimPlot()`.
 }}
