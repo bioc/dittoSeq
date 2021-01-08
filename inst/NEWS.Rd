@@ -2,6 +2,10 @@
 \title{dittoSeq News}
 \encoding{UTF-8}
 
+\section{Version 1.2.3}{\itemize{
+\item Added citation for the Advance Access version of the dittoSeq Applications Note published with Bioinformatics.
+}}
+
 \section{Version 1.2.2}{\itemize{
 \item Bug Fix: keep `split.by` factor level ordering when used with `do.label`
 }}
