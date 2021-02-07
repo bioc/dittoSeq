@@ -2,6 +2,11 @@
 \title{dittoSeq News}
 \encoding{UTF-8}
 
+\section{Version 1.2.4}{\itemize{
+\item Bug Fix: numeric vectors given to `dittoHeatmap()` `order.by` input are now used directly to set order of heatmap columns, as originally intended.
+\item Feature Update: `dittoHeatmap()`'s `order.by` can also now, alternatively, accept multiple gene/metadata names, rather than just one.
+}}
+
 \section{Version 1.2.3}{\itemize{
 \item Added citation for the Advance Access version of the dittoSeq Applications Note published with Bioinformatics.
 }}
