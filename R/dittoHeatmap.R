@@ -11,7 +11,6 @@
 #' 
 #' Alternatively, a Logical vector, the same length as the number of cells in the object, which sets which cells to include.
 #' @param assay,slot single strings or integer that set which expression data to use. See \code{\link{gene}} for more information about how defaults for these are filled in when not provided.
-#' @param swap.rownames String. For SummarizeedExperiment or SingleCellExperiment objects, the column name of rowData(object) to be used to identify features instead of rownames(object).
 #' @param order.by Single string, string vector, or numeric vector which sets how cells/samples (columns) will be ordered when \code{cluster_cols = FALSE}.
 #' 
 #' Strings should be the name of a gene, or metadata slot, but can also be multiple such values in order of priority.
