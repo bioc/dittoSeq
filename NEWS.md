@@ -1,3 +1,7 @@
+# dittoSeq 1.8.1
+
+* Added a helpful error message to catch cases where 'object' does not have cell/column names, and suggest how to add them.
+
 # dittoSeq 1.8
 
 * Minor Feature Add: 'randomize' option for 'order' input of 'dittoDimPlot()' and 'dittoScatterPlot()'
