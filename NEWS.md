@@ -1,3 +1,11 @@
+# dittoSeq 1.12.1
+
+* Bug Fix: Update 'getReductions()' to correctly return NULL when the 'object' contains no dimensionality reductions.
+
+# dittoSeq 1.12
+
+* No code updates. (Bioconductor version number update only)
+
 # dittoSeq 1.10
 
 * Added ability to plot multiple 'var' in a single 'dittoPlot()', 'dittoDimPlot()', 'dittoScatterPlot()', 'dittoDimHex()', and 'dittoScatterHex()' call by giving a vector of genes or continuous metadata to the 'var' or 'color.var' input. Customization of how the "multivar" data is displayed can be controlled with:
