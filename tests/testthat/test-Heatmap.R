@@ -442,3 +442,19 @@ test_that("dittoHeatmap drops levles from annotation_colors to allow 'drop_level
             drop_levels = TRUE),
         "pheatmap")
 })
+
+test_that("dittoHeatmap works for pre-scaled data", {
+    # Generally scale
+    assay(sce, "scaled") <- as.matrix(t(scale(t(round(logcounts(sce), 2)))))
+    # Ensure some zero rowSums (needed due to rounding)
+    assay(sce, "scaled")["gene1",] <- scale(1:ncol(sce), scale = FALSE)
+    # Ensure not all genes so always warning generated, not error
+    assay(sce, "scaled")["gene2",] <- assay(sce, "scaled")["gene2",]+0.05
+
+    expect_warning(
+        h <- dittoHeatmap(genes = genes, object = sce,
+                     assay = "scaled", scale = "none",
+                     drop_levels = TRUE),
+        NA)
+    expect_s3_class(h, "pheatmap")
+})
