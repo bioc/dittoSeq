@@ -1,3 +1,7 @@
+# dittoSeq 1.12.2
+
+* Bug Fix: Allow 'dittoHeatmap()' to plot from pre-scaled data by fixing internal data check to actually look for non-zero values instead of a non-zero sum.
+
 # dittoSeq 1.12.1
 
 * Bug Fix: Update 'getReductions()' to correctly return NULL when the 'object' contains no dimensionality reductions.
