@@ -192,7 +192,7 @@ dittoBarPlot <- function(
     #Build Plot
     p <- ggplot(
         data=data,
-        aes_string(x = "grouping", y= y.show, fill = "label")) +
+        aes(x = .data$grouping, y= .data[[y.show]], fill = .data$label)) +
         theme + xlab(xlab) + ylab(ylab) + ggtitle(main, subtitle = sub) +
         scale_fill_manual(name = legend.title, values = color.panel[colors]) +
         if (x.labels.rotate) {
@@ -202,7 +202,7 @@ dittoBarPlot <- function(
         #Add the bars.
         if(do.hover){
             p <- p + suppressWarnings(geom_col(
-                aes_string(text = "hover.string")))
+                aes(text = .data$hover.string)))
         } else {
             p <- p + geom_col()
         }
