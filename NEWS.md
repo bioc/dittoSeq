@@ -1,3 +1,7 @@
+# dittoSeq 1.14.1
+
+* Various behind the scenes updates to make warnings from ggplot and Seurat go away
+
 # dittoSeq 1.14
 
 * Feature Extensions:
