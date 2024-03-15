@@ -1,3 +1,7 @@
+# dittoSeq 1.14.3
+
+* BugFix: Corrects a bug in how the version of the Seurat-package was checked during expression matrix retrieval.
+
 # dittoSeq 1.14.2
 
 * BugFix: Corrects a bug which blocked provision of 'annotation_row' and 'annotation_colors' inputs to dittoHeatmap without also generating column annotations via either 'annot.by' or 'annotation_col'.
