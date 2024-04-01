@@ -32,7 +32,7 @@ Current updates in 'devel' dittoSeq v1.15, coming soon in Bioconductor 3.19:
         - `vars` input can be given as a named list to group markers (list element values) into categories (list element names).
         - Added automatic addition of display-style adjustments that make category labels appear more like category labels.
             - New inputs `categories.split.adjust` and `categories.theme.adjust` were added to let users turn off these display adjustments. Elements which are added to `split.adjust` (and then ultimately given to `ggplot2::facet_grid()`) can be turned off by setting `categories.split.adjust = FALSE` and elements which are added to `theme` (and applied via `ggplot2::theme()`) can be turned off by setting `categories.theme.adjust = FALSE`.
-    3. (Underway in #147) **'dittoDotPlot()' 3-color scale**: Added support for adding a midpoint color to the color scale used for 'dittoDotPlot()'s.
+    3. **'dittoDotPlot()' 3-color scale**: Added support for adding a midpoint color to the color scale used for 'dittoDotPlot()'s.
         - New input `mid.color` controls the switch:
             - Left as the default, `NULL`, a 2-color scale is used (from 'min.color' to 'max.color')
             - Given `mid.color = "<color>"`, a 3-color scale is used (from 'min.color' to \<color\> to 'max.color')
