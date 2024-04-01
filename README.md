@@ -36,7 +36,7 @@ Current updates in 'devel' dittoSeq v1.15, coming soon in Bioconductor 3.19:
         - New input `mid.color` controls the switch:
             - Left as the default, `NULL`, a 2-color scale is used (from 'min.color' to 'max.color')
             - Given `mid.color = "<color>"`, a 3-color scale is used (from 'min.color' to \<color\> to 'max.color')
-            - Giving `mid.color = "rgb"` or `"rwb"` allows single-point quick update to all of 'min.color', 'mid.color', and 'max.color' for use of one of two standard 3-color scales ("rgb": from "blue" to "gray90" to "red"; "rwb": from "blue" to "white" to "red").
+            - Giving `mid.color = "ryb"` or `"rgb"` or `"rwb"` allows single-point quick update to all of 'min.color', 'mid.color', and 'max.color' for use of one of three standard 3-color scales inspired by [ColorBrewer](https://colorbrewer2.org) ("ryb": from blue to yellow to red; "rgb": from blue to "gray97" to red; "rwb": from blue to "white" to red).
         - New input `mid` controls the data value at which 'mid.color' will be used in the scale, and receives intuitive defaulting so users generally don't need to provide it.
         - *This mechanism is being rolled out an tested with `dittoDotPlot()` first, but* ***users can expect extension of this functionality to other visualizations in an upcoming release!***
     4. 'dittoDimPlot()', 'dittoScatterPlot()', 'dittoDimHex()', and 'dittoScatterHex():

@@ -1,3 +1,7 @@
+# dittoSeq 1.15.8
+
+* Added support for 3-color scales to 'dittoDotPlot()', controlled with new inputs 'mid.color' and 'mid'. 'mid.color' serves as the switch (when changed from the default, 'NULL'), and can be set to "ryb", "rgb", or "rwb" for a single-point quick update to use of one of three standard 3-color scales.
+
 # dittoSeq 1.15.7
 
 * Added new 'color.method = "prop.<value>"' functionality to dittoScatterHex() and dittoDimHex() which allows coloring bins by the proportion of a given 'color.var'-data value.
