@@ -347,11 +347,16 @@ test_that("dittoDotPlot allows 3-color scale", {
             mid.color = "white"),
         "ggplot")
 
-    # "rgb" or "rwb"
+    # "ryb", "rgb" or "rwb"
     ### Manual Check:
-    # First has gray in middle of legend
-    # Second has white in middle of legend
-    # Both have blue at bottom and red at top of legend
+    # First has yellow in middle of legend
+    # Second has near-white in middle of legend
+    # Third has white in middle of legend
+    # All have blue at bottom and red at top of legend
+    expect_s3_class(
+        dittoDotPlot(sce, genes, "groups",
+            mid.color = "ryb"),
+        "ggplot")
     expect_s3_class(
         dittoDotPlot(sce, genes, "groups",
             mid.color = "rgb"),
@@ -374,7 +379,8 @@ test_that("dittoDotPlot allows 3-color scale", {
             mid.color = "white",
             scale = FALSE, min = NA),
         "ggplot")
-    # mid too high, colors plotted between min and mid only
+    # mid too high, colors plotted between min and mid only because mid is
+    #   higher than the max of the data.
     expect_s3_class(
         dittoDotPlot(sce, genes, "groups",
             mid.color = "white",

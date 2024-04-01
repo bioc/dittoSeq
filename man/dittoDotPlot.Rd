@@ -101,22 +101,23 @@ OR when giving 2 metadatas to \code{split.by}, see \code{\link[ggplot2]{facet_gr
 
 \item{min.color, max.color}{colors to use for minimum and maximum color values.
 Default = light grey and purple.
-Ignored if \code{mid.color} given as \code{"rwb"} or \code{"rgb"} which will update these to be "blue" and "red", respectively.}
+Ignored if \code{mid.color} given as \code{"ryb"}, \code{"rwb"}, or \code{"rgb"} which will update these to be "blue" and "red", respectively.}
 
 \item{min, max}{Numbers which set the values associated with the minimum and maximum colors.}
 
-\item{mid.color}{NULL (default), "rwb", "rgb", or a color to use for the midpoint of a three-color color scale.
+\item{mid.color}{NULL (default), "ryb", "rwb", "rgb", or a color to use for the midpoint of a three-color color scale.
 \emph{This parameter acts a switch between using a 2-color scale or a 3-color scale}:\itemize{
 \item When left NULL, the 2-color scale runs from \code{min.color} to \code{max.color}, using \code{\link[ggplot2]{scale_fill_gradient}}.
 \item When given a color, the 3-color scale runs from \code{min.color} to \code{mid.color} to \code{max.color}, using \code{\link[ggplot2]{scale_fill_gradient2}}.
 \item{
-When given \emph{\code{"rwb"} or \code{"rgb"} serves as a \strong{single-point, quick switch to a "standard" 3-color scale}} by also updating the \code{min.color} and \code{max.color} used:
+When given \emph{\code{"ryb"}, \code{"rwb"}, or \code{"rgb"} serves as a \strong{single-point, quick switch to a "standard" 3-color scale}} by also updating the \code{min.color} and \code{max.color}.
 Doing so sets:\itemize{
-    \item "red" as the \code{max.color},
-    \item "blue" as the \code{min.color},
-    \item and either "white" ("r\emph{w}b") or "gray90" ("r\emph{g}b") for \code{mid.color}.
+    \item \code{max.color} to a red,
+    \item \code{min.color} to a blue,
+    \item and \code{mid.color} to either a yellow ("r\emph{y}b"), "white" ("r\emph{w}b"), or "gray97" ("r\emph{g}b", gray not green).
+    \item Actual colors used are inspired by \href{http://www.colorbrewer.org}{ColorBrewer} "RdYlBu" and "RdBu" palettes.
 }
-Thus, the 3-color scale runs from "blue" to either "white" or "gray90" to "red", using \code{\link[ggplot2]{scale_fill_gradient2}}.
+Thus, the 3-color scale runs from a blue to one of a yellow, "white", or "gray97" to a red, using \code{\link[ggplot2]{scale_fill_gradient2}}.
 }
 }}
 
@@ -315,15 +316,16 @@ dittoDotPlot(myRNA, group.by = "clustering",
 dittoDotPlot(myRNA, c("gene1", "gene2", "gene3", "gene4"), "clustering",
     mid.color = "white"
 )
-# Setting it to "rgb" or "rwb" quickly updates 'min.color' and 'max.color' too,
-#   making the affect of these next two calls equivalent:
+# Setting it to "ryb", "rgb", or "rwb" quickly updates this input as well as
+#   'min.color' and 'max.color', making the affect of these next two calls
+#   equivalent:
 dittoDotPlot(myRNA, c("gene1", "gene2", "gene3", "gene4"), "clustering",
     mid.color = "rgb"
 )
 dittoDotPlot(myRNA, c("gene1", "gene2", "gene3", "gene4"), "clustering",
-    min.color = "blue",
-    mid.color = "gray90",
-    max.color = "red"
+    min.color = "#2166AC", # (blue)
+    mid.color = "gray97",  # (gray)
+    max.color = "#B2182B"  # (red)
 )
 
 # For certain specialized applications, it may be helpful to adjust the
