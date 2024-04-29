@@ -21,7 +21,7 @@ dittoSeq also makes access of underlying data easy, for submitting to journals o
 
 **Major functionality updates are coming in the next release!**
 
-Current updates in 'devel' dittoSeq v1.15, coming soon in Bioconductor 3.19:
+Updates in dittoSeq v1.16 (Bioconductor 3.19):
 
 - Feature Extensions:
 
