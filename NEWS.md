@@ -1,37 +1,27 @@
-# dittoSeq 1.15.8
+# dittoSeq 1.16
 
-* Added support for 3-color scales to 'dittoDotPlot()', controlled with new inputs 'mid.color' and 'mid'. 'mid.color' serves as the switch (when changed from the default, 'NULL'), and can be set to "ryb", "rgb", or "rwb" for a single-point quick update to use of one of three standard 3-color scales.
-
-# dittoSeq 1.15.7
-
-* Added new 'color.method = "prop.<value>"' functionality to dittoScatterHex() and dittoDimHex() which allows coloring bins by the proportion of a given 'color.var'-data value.
-
-# dittoSeq 1.15.6
-
-* Added ability to have 'dittoDotPlot()' group shown features ("vars") into categories, by providing 'vars' as a named list.  Also adds inputs 'categories.split.adjust' and 'categories.theme.adjust' which can be used to turn off the automatic addition of display-style adjustments that make category labels appear more like category labels.
-* Added native control to 'dittoDotPlot()' over which axis is used for 'vars' versus 'group.by'-groupings, controlled by the new input: 'vars.dir'.
-* BugFix: Corrects a bug in how the version of the Seurat-package was checked during expression matrix retrieval.
-
-# dittoSeq 1.15.5
-
-* BugFix: Corrects a bug which blocked provision of 'annotation_row' and 'annotation_colors' inputs to dittoHeatmap without also generating column annotations via either 'annot.by' or 'annotation_col'.
-
-# dittoSeq 1.15.4
-
-* Various behind the scenes updates to make warnings from ggplot and Seurat go away
-
-# dittoSeq 1.15.3
-
-* Added 'labels.repel.adjust' input to 'dittoDimPlot()', 'dittoScatterPlot()', 'dittoDimHex()', and 'dittoScatterHex()'. The input allows extra control of how labels will be placed when 'do.label = TRUE' (and 'labels.repel' is not set to FALSE) by providing a mechanism to pass desired parameters through to the ggrepel function used for plotting the labels.
-
-# dittoSeq 1.15.2
-
-* Added multi-modality feature expression retrieval to provide for across modality plotting. The 'assay' input can now be provided a vector of assays to target. The 'swap.rownames' input was also updated for multi-modality access purposes. The full system is documented in its own page, '?GeneTargeting', that function documentation for 'assay', 'slot', and 'swap.rownames' inputs have been updated to point to.
-* Completed the deprecation of 'dittoHeatmap()'s 'highlight.genes' input
-
-# dittoSeq 1.15.1
-
-* Added 'vlnplot.quantiles' and 'boxplot.outlier.size' inputs to 'dittoPlot()', 'dittoPlotVarsAcrossGroups()', and 'dittoFreqPlot()' functions.
+* Feature Extensions:
+    1. Multi-modality functionality: To support visualization of markers from multiple modalities in the same plot, e.g. gene expression by RNA and protein capture by ADT, the mechanics of 'assay', 'slot', and 'swap.rownames' inputs have been expanded, although defaults are unchanged. See the '?GeneTargeting' documentation page for details. For the standard Seurat CITEseq case, set 'assay = c("RNA", "ADT")'.
+    2. 'dittoDotPlot()' vars-categories: Added support for categorization of markers, as well as for x and y axes swapping.
+        * Provide 'vars' as a named list to group markers (list element values) into categories (list element names).
+        * New input 'vars.dir' controls which axis is used for markers ("x" by default, or "y").
+        * New boolean inputs 'categories.theme.adjust' or 'categories.split.adjust' can be used to turn off associated automated additions to the 'theme' input or 'split.adjust' input as well as faceting mechanics, respectively.
+    3. 'dittoDotPlot()' 3-color scaling: Added support for injecting a midpoint color to the color scale via 2 new inputs.
+        * New input 'mid.color' acts as the switch, and can be set to the specific strings "ryb", "rwb", or "rgb" (g for gray here) for a single-point quick update to use corresponding ColorBrewer inspired scales (effectively updating 'min.color' and 'max.color' as well). 'mid.color' can alternatively be given a color directly for more fine-grain control of colors.
+        * New input 'mid' controls the data value at which 'mid.color' will be used in the scale.
+    4. Additional data representation controls for all 'dittoPlot()'-style plotters, which includes 'dittoFreqPlot()':
+        * New input 'boxplot.outlier.size' allows control of the outlier shape's size for "boxplot" representations.
+        * New input 'vlnplot.quantiles' allows addition of lines at requested data quantiles for "vlnplot" representations.
+    5. Added a new built in 'color.method' style for 'dittoScatterHex()' and 'dittoDimHex()' plotters:
+        * When 'color.var' targets discrete data, giving 'color.method = "prop.\<value\>"', where \<value\> is an actual data level of 'color.var'-data, will set coloring to represent the proportion of \<value\> among the 'color.var'-data of each bin.
+    6. New input 'labels.repel.adjust' allows finer control of the 'do.label' plot addition, via input pass-through to the geom functions underlying labeling. This affects 'dittoDimPlot()', 'dittoScatterPlot()', 'dittoDimHex()', and 'dittoScatterHex() functions.
+* Bug Fixes:
+    1. 'dittoHeatmap()': Fixed a bug which blocked provision of 'annotation_row' and 'annotation_colors' inputs to 'dittoHeatmap()' without also generating column annotations via either 'annot.by' or direct 'annotation_col' provision.
+* Deprecation:
+    1. Completed deprecation of 'dittoHeatmap()'s 'highlight.genes' input via removal from the function.
+* Dependency Upkeep (generally invisible to users):
+    1. ggplot-v3: Replaced all calls to the deprecated 'aes_string()' function with calls to the standard 'aes()' function. In cases where mappings are successively built internally to accommodate customization or flexibility, 'modifyList()' usage replaces the previous simple 'list' and 'do.call()' management.
+    2. Seurat-v5: When the user's Seurat package version is 5.0 or higher, conditional code switches expression data retrieval from a call to the reportedly superseded 'GetAssayData()' function to the newly supported 'SeuratObj[[\<assay\>]][\<slot\>]' syntax.
 
 # dittoSeq 1.14
 
